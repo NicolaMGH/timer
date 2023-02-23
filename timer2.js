@@ -13,11 +13,13 @@ stdin.on('data', (key) => {
     setTimeout(() => {
       process.exit();
     }, 1000);
-  } else if (key === 'b') {
-    process.stdout.write('\x07');
+  } else if (key != 'b') {
+    //do nothing
   } else if (key === 1||2||3||4||5||6||7||8||9) {
     setTimeout(() => {
       process.stdout.write('\x07');
     }, key * 1000);
+  } else {
+    process.stdout.write('\x07');
   }
 });
